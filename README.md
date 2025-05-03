@@ -6,11 +6,11 @@ A web browser in Roblox.
 
 This uses an HTTP server (written in Rust) which uses the Chrome devtools
 protocol (through the
-[headless_chrome](https://github.com/rust-headless-chrome/rust-headless-chrome))
-crate. It will start a browser, create a tab, and start a screencast. Each frame
-of the screencast is split into chunks, we then compare the chunks of the new
-frame and old frame. Any chunks that are changed, are sent over the wire using a
-custom binary protocol.
+[headless_chrome](https://github.com/rust-headless-chrome/rust-headless-chrome)
+crate). It will start a browser, create a tab, and start a screencast. Each
+frame of the screencast is split into chunks, we then compare the chunks of the
+new frame and old frame. Any chunks that are changed, are sent over the wire
+using a custom binary protocol.
 
 On the Roblox side of things, we repeatedly poll the server using long-polling
 in order to get new data. We then decode any chunks we get and update the
